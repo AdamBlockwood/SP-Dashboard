@@ -300,7 +300,7 @@ const DemographicsTab = () => {
 
        <Card title="Primary Work Position (Full Sample)" n="1399">
         <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={schoolPsychDemographics.primaryWorkPosition.sort((a,b) => b.value-a.value)} layout="vertical" margin={{top: 20, right: 30, left: 180, bottom: 5}}>
+            <BarChart data={[...schoolPsychDemographics.primaryWorkPosition].sort((a,b) => b.value-a.value)} layout="vertical" margin={{top: 20, right: 30, left: 180, bottom: 5}}>
                 <CartesianGrid strokeDasharray="3 3"/>
                 <XAxis type="number" unit="%"/>
                 <YAxis type="category" dataKey="name" width={180}/>
@@ -356,7 +356,7 @@ const DemographicsTab = () => {
       </div>
        <Card title="Work Settings" n="129">
         <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={schoolPsychDemographics.workSettings.sort((a,b) => b.value - a.value)} layout="vertical" margin={{top: 20, right: 30, left: 150, bottom: 5}}>
+            <BarChart data={[...schoolPsychDemographics.workSettings].sort((a,b) => b.value - a.value)} layout="vertical" margin={{top: 20, right: 30, left: 150, bottom: 5}}>
                 <CartesianGrid strokeDasharray="3 3"/>
                 <XAxis type="number" unit="%"/>
                 <YAxis type="category" dataKey="name" width={150}/>
@@ -367,7 +367,7 @@ const DemographicsTab = () => {
       </Card>
        <Card title="Race/Ethnicity" n="111">
             <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={schoolPsychDemographics.race.sort((a,b) => b.value-a.value)} layout="vertical" margin={{top: 20, right: 30, left: 150, bottom: 5}}>
+                <BarChart data={[...schoolPsychDemographics.race].sort((a,b) => b.value-a.value)} layout="vertical" margin={{top: 20, right: 30, left: 150, bottom: 5}}>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <XAxis type="number" unit="%"/>
                     <YAxis type="category" dataKey="name" width={150}/>
@@ -386,7 +386,7 @@ const AiTasksTab = () => (
         <Card title="School Psychologist AI Task Usage Comparison" n="102 (AI Users) vs. 129 (Total Sample)">
             <p className="text-gray-600 mb-4 -mt-2 text-sm">This chart compares the percentage of AI users who perform a task against the percentage of the total sample.</p>
             <ResponsiveContainer width="100%" height={600}>
-                 <BarChart data={aiTasksData.sort((a,b) => b['% of AI Users'] - a['% of AI Users'])} layout="vertical" margin={{ top: 20, right: 30, left: 200, bottom: 5 }}>
+                 <BarChart data={[...aiTasksData].sort((a,b) => b['% of AI Users'] - a['% of AI Users'])} layout="vertical" margin={{ top: 20, right: 30, left: 200, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis type="number" unit="%" />
                     <YAxis type="category" dataKey="task" width={200} style={{ fontSize: '12px' }}/>
@@ -447,7 +447,7 @@ const TrainingTab = () => (
         <Card title="AI Prompt Development Training Completed" n="129">
             <p className="text-gray-600 mb-4 -mt-2 text-sm">Respondents could select all that apply.</p>
             <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={promptTrainingData.sort((a, b) => b.percent - a.percent)} margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
+                <BarChart data={[...promptTrainingData].sort((a, b) => b.percent - a.percent)} margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="type" angle={-45} textAnchor="end" height={100} interval={0}/>
                     <YAxis unit="%" />
@@ -458,7 +458,7 @@ const TrainingTab = () => (
         </Card>
          <Card title="AI Education: Current Sources vs. Desired Resources" n="129">
              <ResponsiveContainer width="100%" height={400}>
-                 <BarChart data={educationSourcesData.sort((a,b) => b.Used - a.Used)} margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
+                 <BarChart data={[...educationSourcesData].sort((a,b) => b.Used - a.Used)} margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
                      <CartesianGrid strokeDasharray="3 3" />
                      <XAxis dataKey="source" angle={-45} textAnchor="end" height={100} interval={0}/>
                      <YAxis unit="%" />
